@@ -7,6 +7,7 @@ The design will include the following:
 - Battery Pack w/ two 18650 batteries, in a series
 - Voltage divider on perfboard
 - LM2596 Buck Converter (5V)
+- Raspberry Pi Pico
 - A 1.5ft strand (15 pixels) of the [150 LEDs/16.4 ft](https://a.co/d/0i7U9awN) density
 - Controls
     - **Master power on/off switch**
