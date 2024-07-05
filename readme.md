@@ -12,4 +12,4 @@ The design will include the following:
     - **Master power on/off switch**
     - **Button** for changing pattern/color (see [this article](https://www.hackster.io/Ramji_Patel/raspberry-pi-pico-and-button-321059) on how to do this)
     - **Brightness potentiometer**
-    - **Auxilary Potentiometer**potentiometer for controlling temperature
+    - **Auxilary Potentiometer** potentiometer for controlling temperature and other things
