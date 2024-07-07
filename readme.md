@@ -11,6 +11,8 @@ The design will include the following:
 - A 1.5ft strand (15 pixels) of the [150 LEDs/16.4 ft](https://a.co/d/0i7U9awN) density
 - Controls
     - **Master power on/off switch**
+        - Based on my motorcycle strobe design, a cut with a radius of 21mm will hold it securely
     - **Button** for changing pattern/color (see [this article](https://www.hackster.io/Ramji_Patel/raspberry-pi-pico-and-button-321059) on how to do this)
+        - Specifying `Pin.PULL_UP` when creating the `machine.Pin` instance seems to be important. For example: `button = Pin(22, Pin.IN, Pin.PULL_UP)`
     - **Brightness potentiometer**
     - **Auxilary Potentiometer** potentiometer for controlling temperature and other things
