@@ -42,11 +42,17 @@ button = machine.Pin(8, machine.Pin.IN, machine.Pin.PULL_UP)
 nm:neopixel.NeopixelManager = neopixel.NeopixelManager(neopixel.Neopixel(15, 0, 0, "GRB"))
 
 # infinite loop!
+button_last_read_as_depressed:bool = False
 while True:
 
-    # is button pressed? If so, increment to next mode
-    if button.value() == 0: # 0 is pressed ("pulled down" to GND)
-        next_mode()
+    # handle button depressed
+    if button_last_read_as_depressed: # if we are waiting for the button to be lifted
+        if button.value() == 1: # it is back to being let go of, so increment
+            next_mode()
+            button_last_read_as_depressed = False
+    else: # we are awaiting for it to be pressed again!
+        if button.value() == 0: # 0 is pressed ("pulled down" to GND)
+            button_last_read_as_depressed = True
     
     # Read pot
     pot_reading:float = pr.read()
