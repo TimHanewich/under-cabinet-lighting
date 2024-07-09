@@ -11,8 +11,8 @@ class PotReader:
         percentage:float = self.adc.read_u16() / 65535
 
         # scale percentage (account for dead zone on both ends)
-        p_min:float = 0.10
-        p_max:float = 0.90
+        p_min:float = 0.01
+        p_max:float = 0.99
         percentage = (percentage - p_min) / (p_max - p_min)
         percentage = max(min(percentage, 1.0), 0.0) # ensure within 1.0 and 0.0
 
