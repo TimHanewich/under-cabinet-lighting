@@ -5,6 +5,9 @@ import neopixel
 import tools
 import WeightedAverageCalculator
 
+# SETTINGS
+DEAD_BATTERY_VOLTAGE:float = 6.1 # voltage of a double-18650 (in series) battery pack that is determined to be dead. Once it hits, the program will stop.
+
 # Mode Options
 MODE_SOLID_A:int = 0 # Full "warm" color
 MODE_SOLID_B:int = 1 
@@ -62,9 +65,9 @@ while True:
     volts = volts / 0.32
 
     # if volts are below threshold, mark battery as dead
-    if volts <= 6.1:
+    if volts <= DEAD_BATTERY_VOLTAGE:
 
-        print("Battery voltage of " + str(volts) + " detected, which is too low! Proceeding to shut down...")
+        print("Battery voltage of " + str(volts) + " detected, which is below the dead battery voltage of " + str(DEAD_BATTERY_VOLTAGE) + " ! Proceeding to shut down...")
         
         # Dead battery pattern on neopixels
         print("Displaying dead battery indicator (first pixel is red)...")
