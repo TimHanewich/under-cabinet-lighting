@@ -12,7 +12,7 @@ class PotReader:
         return 1.0 - percentage # flip it so it is the correct direction (turning to right is up, turning to left is down)
     
 def warmth(percent:float) -> tuple[int, int, int]:
-    """Returns an RGB color on a spectrum of color from cold to warm"""
+    """Returns an RGB color on a spectrum of color from cold to warm. 0.0 is warm, 1.0 is cold."""
     warm:tuple[int, int, int] = (255, 131, 0)
     cold:tuple[int, int, int] = (195, 209, 255)
     return colors.gradient_point(warm, cold, percent)
