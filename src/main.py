@@ -30,8 +30,6 @@ def next_mode() -> None:
     else: # if we are not on the last mode
         MODE = MODE + 1 # increment by 1 (to the next mode, they should be in order with no skips...)
 
-    print("MODE now set to '" + str(MODE) + "'")
-
 # set up PotReader
 pr:tools.PotReader = tools.PotReader(28)
 
