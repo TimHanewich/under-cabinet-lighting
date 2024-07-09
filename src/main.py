@@ -3,6 +3,7 @@ import machine
 import colors
 import neopixel
 import tools
+import WeightedAverageCalculator
 
 # Mode Options
 MODE_SOLID_A:int = 0 # Full "warm" color
@@ -30,6 +31,10 @@ def next_mode() -> None:
     else: # if we are not on the last mode
         MODE = MODE + 1 # increment by 1 (to the next mode, they should be in order with no skips...)
 
+# set up ADC pin for battery voltage reading via voltage divider
+vbat_adc = machine.ADC(machine.Pin(26, machine.Pin.IN))
+vbat_wac:WeightedAverageCalculator.WeightedAverageCalculator = WeightedAverageCalculator.WeightedAverageCalculator(0.95)
+
 # set up PotReader
 pr:tools.PotReader = tools.PotReader(28)
 
@@ -42,6 +47,21 @@ nm:neopixel.NeopixelManager = neopixel.NeopixelManager(neopixel.Neopixel(15, 0, 
 # infinite loop!
 button_last_read_as_depressed:bool = False
 while True:
+
+    # sample vbat ADC reading, but using weighted average calculator
+    vbat_reading:int = vbat_adc.read_u16()
+    vbat_reading_smoothed:float = vbat_wac.feed(float(vbat_reading))
+
+    # convert ADC reading on battery to a voltage
+    full:tuple[int, float] = (50710, 2.62) # full, when on same power source
+    dead:tuple[int, float] = (38715, 1.98) # depleted, when on same power source
+    PercentOfRange:float = (vbat_reading_smoothed - dead[0]) / (full[0] - dead[0])
+    volts:float = dead[1] + (PercentOfRange * (full[1] - dead[1]))
+
+    # scale upward to remove divider
+    volts = volts / 0.32
+
+    print("Battery volts: " + str(volts)) 
 
     # handle button depressed
     if button_last_read_as_depressed: # if we are waiting for the button to be lifted
