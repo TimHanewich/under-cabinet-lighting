@@ -6,7 +6,7 @@ import tools
 import WeightedAverageCalculator
 
 # SETTINGS
-DEAD_BATTERY_VOLTAGE:float = 6.1 # voltage of a double-18650 (in series) battery pack that is determined to be dead. Once it hits, the program will stop.
+DEAD_BATTERY_VOLTAGE:float = 0.1 # voltage of a double-18650 (in series) battery pack that is determined to be dead. Once it hits, the program will stop.
 
 # Mode Options
 MODE_SOLID_A:int = 0 # Full "warm" color
@@ -38,8 +38,9 @@ def next_mode() -> None:
 vbat_adc = machine.ADC(machine.Pin(26, machine.Pin.IN))
 vbat_wac:WeightedAverageCalculator.WeightedAverageCalculator = WeightedAverageCalculator.WeightedAverageCalculator(0.95)
 
-# set up PotReader
+# set up PotReader and WAC for PotReader
 pr:tools.PotReader = tools.PotReader(28)
+pr_wac:WeightedAverageCalculator.WeightedAverageCalculator = WeightedAverageCalculator.WeightedAverageCalculator(0.9)
 
 # set up button
 button = machine.Pin(8, machine.Pin.IN, machine.Pin.PULL_UP)
@@ -91,6 +92,7 @@ while True:
     
     # Read pot
     pot_reading:float = pr.read()
+    pot_reading = pr_wac.feed(pot_reading)
 
     # display according to the mode and pot reading we are in!
     if MODE == MODE_SOLID_A: # full warm
