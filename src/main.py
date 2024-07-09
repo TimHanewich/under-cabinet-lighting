@@ -6,7 +6,7 @@ import tools
 import WeightedAverageCalculator
 
 # SETTINGS
-DEAD_BATTERY_VOLTAGE:float = 0.1 # voltage of a double-18650 (in series) battery pack that is determined to be dead. Once it hits, the program will stop.
+DEAD_BATTERY_VOLTAGE:float = 6.1 # voltage of a double-18650 (in series) battery pack that is determined to be dead. Once it hits, the program will stop.
 
 # Mode Options
 MODE_SOLID_A:int = 0 # Full "warm" color
