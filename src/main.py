@@ -9,19 +9,21 @@ import WeightedAverageCalculator
 DEAD_BATTERY_VOLTAGE:float = 6.1 # voltage of a double-18650 (in series) battery pack that is determined to be dead. Once it hits, the program will stop.
 
 # Mode Options
-MODE_SOLID_A:int = 0 # Full "warm" color
-MODE_SOLID_B:int = 1 
-MODE_SOLID_C:int = 2
-MODE_SOLID_D:int = 3 # Full "cold" color
-MODE_RAINBOW:int = 4 # rainbow color
+MODE_FULL:int = 0
+MODE_SOLID_A:int = 1 # Full "warm" color
+MODE_SOLID_B:int = 2 
+MODE_SOLID_C:int = 3
+MODE_SOLID_D:int = 4 # Full "cold" color
+MODE_RAINBOW:int = 5 # rainbow color
 
 # What mode we are in
-MODE:int = MODE_SOLID_A # default @ MODE_SOLID_A
+MODE:int = MODE_FULL # default mode
 
 def next_mode() -> None:
     """Increments the current mode to the next mode"""
 
     # declare globals we need to call to in this function
+    global MODE_FULL
     global MODE_SOLID_A
     global MODE_SOLID_B
     global MODE_SOLID_C
@@ -95,7 +97,10 @@ while True:
     pot_reading = pr_wac.feed(pot_reading)
 
     # display according to the mode and pot reading we are in!
-    if MODE == MODE_SOLID_A: # full warm
+    if MODE == MODE_FULL: # full (255, 255, 255):
+        nm.fill((255, 255, 255))
+        nm.show()
+    elif MODE == MODE_SOLID_A: # full warm
         color:tuple[int, int, int] = tools.warmth(0.0)
         color = colors.brighten(color, pot_reading)
         nm.fill(color)
