@@ -1,6 +1,7 @@
 ## Specifications
 - Target length: 18 inches long (1.5 ft)
-- On the 150/LEDs per strand (30 pixels/meter), that is 15 pixels.
+- On the [150/LEDs per strand (30 pixels/meter)](https://a.co/d/074xPUYj), that is 15 pixels.
+- On the [300/LEDs per strand (60 pixels/meter)](https://a.co/d/06SNFuth), that is 30 pixels.
 
 ## Design
 The design will include the following:
