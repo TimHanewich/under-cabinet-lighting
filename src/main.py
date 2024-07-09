@@ -61,7 +61,17 @@ while True:
     # scale upward to remove divider
     volts = volts / 0.32
 
-    print("Battery volts: " + str(volts)) 
+    # if volts are below threshold, mark battery as dead
+    if volts <= 6.1:
+        
+        # Dead battery pattern on neopixels
+        nm.fill((0, 0, 0))
+        nm.set_pixel(0, (10, 0, 0)) # set first pixel as red
+        nm.show()
+
+        # break out of while loop (abort this whole program now that we are dead!)
+        break
+        
 
     # handle button depressed
     if button_last_read_as_depressed: # if we are waiting for the button to be lifted
