@@ -9,6 +9,13 @@ class PotReader:
     def read(self) -> float:
         """Returns the reading on the potentiometer (knob) as a percentage between 0.0 and 1.0."""
         percentage:float = self.adc.read_u16() / 65535
+
+        # scale percentage (account for dead zone on both ends)
+        p_min:float = 0.10
+        p_max:float = 0.90
+        percentage = (percentage - p_min) / (p_max - p_min)
+        percentage = max(min(percentage, 1.0), 0.0) # ensure within 1.0 and 0.0
+
         return 1.0 - percentage # flip it so it is the correct direction (turning to right is up, turning to left is down)
     
 def warmth(percent:float) -> tuple[int, int, int]:
