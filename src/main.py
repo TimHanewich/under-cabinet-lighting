@@ -63,13 +63,17 @@ while True:
 
     # if volts are below threshold, mark battery as dead
     if volts <= 6.1:
+
+        print("Battery voltage of " + str(volts) + " detected, which is too low! Proceeding to shut down...")
         
         # Dead battery pattern on neopixels
+        print("Displaying dead battery indicator (first pixel is red)...")
         nm.fill((0, 0, 0))
         nm.set_pixel(0, (10, 0, 0)) # set first pixel as red
         nm.show()
 
         # break out of while loop (abort this whole program now that we are dead!)
+        print("Bye bye!")
         break
         
 
