@@ -48,7 +48,7 @@ pr_wac:WeightedAverageCalculator.WeightedAverageCalculator = WeightedAverageCalc
 button = machine.Pin(8, machine.Pin.IN, machine.Pin.PULL_UP)
 
 # set up neopixels
-nm:neopixel.NeopixelManager = neopixel.NeopixelManager(neopixel.Neopixel(15, 0, 0, "GRB"))
+nm:neopixel.NeopixelManager = neopixel.NeopixelManager(neopixel.Neopixel(30, 0, 0, "GRB"))
 
 # infinite loop!
 button_last_read_as_depressed:bool = False
@@ -121,7 +121,7 @@ while True:
         nm.fill(color)
         nm.show()
     elif MODE == MODE_RAINBOW:
-        rainbow_slices:list[tuple[int, int, int]] = colors.spectrum_slices(15)
+        rainbow_slices:list[tuple[int, int, int]] = colors.spectrum_slices(nm.num_leds)
         for i in range(0, len(rainbow_slices)):
             icolor = rainbow_slices[i] # select
             icolor = colors.brighten(icolor, pot_reading) # brighten/dim according to pot reading
