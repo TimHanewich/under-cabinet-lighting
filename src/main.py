@@ -67,7 +67,7 @@ while True:
     # if volts are below threshold, mark battery as dead
     if volts <= DEAD_BATTERY_VOLTAGE:
 
-        print("Battery voltage of " + str(volts) + " detected, which is below the dead battery voltage of " + str(DEAD_BATTERY_VOLTAGE) + " ! Proceeding to shut down...")
+        print("Battery voltage of " + str(volts) + " detected, which is below the dead battery voltage of " + str(DEAD_BATTERY_VOLTAGE) + "! Proceeding to shut down...")
         
         # Dead battery pattern on neopixels
         print("Displaying dead battery indicator (first pixel is red)...")
