@@ -13,6 +13,11 @@ The design includes the following:
     - **Tactile Button** for changing pattern/color
     - **Auxilary Potentiometer** potentiometer that can be used as decided (i.e. controlling brightness, color temperature and other things). You can easily use plyers to pull off that metal bit that prevents it from being flush against.
 
+## Wiring
+![wiring](https://i.imgur.com/RFXitxp.png)
+
+The wiring diagram above can also be opened in [draw.io](https://draw.io) with the [schematic file](./schematic.drawio) provided in this repo.
+
 ## Specifications
 - Target length: 18 inches long (1.5 ft)
 - On the [150/LEDs per strand (30 pixels/meter)](https://a.co/d/074xPUYj), that is 15 pixels.

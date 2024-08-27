@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-07-09T15:24:53.242Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0" etag="8Yt0XBKI80zoNQbrMiQx" version="24.6.4" type="device">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0" version="24.7.7">
   <diagram name="Page-1" id="AIk0Q2GmdtSzgIbApq3y">
-    <mxGraphModel dx="961" dy="578" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1201" dy="1956" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -348,6 +348,9 @@
             <mxPoint x="917" y="425" as="sourcePoint" />
             <mxPoint x="1070" y="425" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="NWkZKVVkxukmB8QtKzGu-1" value="&lt;b&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Under Cabinet Lighting Wiring Diagram&lt;/font&gt;&lt;/b&gt;&lt;div&gt;https://github.com/TimHanewich/under-cabinet-lighting&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="750" y="-40" width="350" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
