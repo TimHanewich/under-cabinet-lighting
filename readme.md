@@ -30,3 +30,4 @@ I used a small tactile push button, soldered to a perf board, as the button. I t
 
 ## Helpful Resources
 - [This artile](https://www.hackster.io/Ramji_Patel/raspberry-pi-pico-and-button-321059) describes how a tactile push button can be set up.
+- [This](https://github.com/TimHanewich/under-cabinet-lighting/releases/download/1/design5.blend) is the original blender file I used when designing this project.
