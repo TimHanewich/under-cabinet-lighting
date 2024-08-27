@@ -18,6 +18,11 @@ The design includes the following:
 
 The wiring diagram above can also be opened in [draw.io](https://draw.io) with the [schematic file](./schematic.drawio) provided in this repo.
 
+## Assembly
+I've provided the designs for the 3D-printed parts via Thingiverse [here](https://www.thingiverse.com/thing:6745264). It is basically just a box with a top and bottom piece, the bottom piece containing holes to mount the physical controls in.
+
+I used a small tactile push button, soldered to a perf board, as the button. I then used small M2 screws to mount this perf board to the small openings in the `bottom.stl` model (I trust you will see where that is).
+
 ## Specifications
 - Target length: 18 inches long (1.5 ft)
 - On the [150/LEDs per strand (30 pixels/meter)](https://a.co/d/074xPUYj), that is 15 pixels.
